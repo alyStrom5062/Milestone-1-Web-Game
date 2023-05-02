@@ -1,0 +1,13 @@
+html {
+    background-color: #000;
+}
+#gameMap {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+#playerCharacter {
+    position: relative;
+    bottom: 576px;
+    left: 208px;
+}
