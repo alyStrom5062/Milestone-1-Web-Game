@@ -11,3 +11,8 @@ html {
     bottom: 576px;
     left: 208px;
 }
+footer {
+    color: #fff;
+    font-style: italic;
+    text-align: center;
+}
