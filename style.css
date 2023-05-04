@@ -1,17 +1,19 @@
 html {
     background-color: #000;
 }
-#gameMap {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
 #playerCharacter {
     position: relative;
-    bottom: 576px;
-    left: 208px;
+    top: -512px;
+    left: -960px;
+}
+#npcCharacter1 {
+    position: relative;
+    top: -512px;
+    left: -512px;
+
 }
 footer {
+    position: relative;
     color: #fff;
     font-style: italic;
     text-align: center;
