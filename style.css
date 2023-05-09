@@ -5,12 +5,7 @@ html {
     position: relative;
     top: -512px;
     left: -960px;
-}
-#npcCharacter1 {
-    position: relative;
-    top: -512px;
-    left: -512px;
-
+    z-index: 2;
 }
 footer {
     position: relative;
