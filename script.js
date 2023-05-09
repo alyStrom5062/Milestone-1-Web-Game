@@ -81,11 +81,20 @@ let pcImage = document.getElementById("playerCharacter")
 // move character to new tile onpress according to his direction
 
 function walk(){ 
-    collision()
     if(direction === "Left"){
         playerCoordx -= 64
         if(playerCoordx < -960){
             playerCoordx = -960
+        } else if(playerTile === 73) {
+            playerCoordx = -832
+        } else if(playerTile === 76) {
+            playerCoordx = -640
+        } else if(playerTile === 81) {
+            playerCoordx = -320
+        } else if(playerTile === 83) {
+            playerCoordx = -192
+        } else if(playerTile === 112) {
+            playerCoordx = -512
         } else {
             playerTile -= 1
             pcImage.style.left = playerCoordx + "px"
@@ -96,6 +105,10 @@ function walk(){
         playerCoordy -= 64
         if(playerCoordy < -512){
             playerCoordy = -512
+        } else if((playerTile === 89) || (playerTile === 91) || (playerTile === 92) || (playerTile === 96) || (playerTile === 97) || (playerTile === 99)) {
+            playerCoordy = -448
+        } else if(playerTile === 128) {
+            playerCoordy = -320
         } else {
             playerTile -=17
             pcImage.style.top = playerCoordy + "px"
@@ -106,6 +119,16 @@ function walk(){
         playerCoordx += 64
         if(playerCoordx > -192){
             playerCoordx = -192
+        } else if(playerTile === 71) {
+            playerCoordx = -960
+        } else if(playerTile === 73) {
+            playerCoordx = -832
+        } else if(playerTile === 78) {
+            playerCoordx = -512
+        } else if(playerTile === 81) {
+            playerCoordx = -320
+        } else if(playerTile === 110) {
+            playerCoordx = -640
         } else {
             playerTile += 1
             pcImage.style.left = playerCoordx + "px"
@@ -116,6 +139,8 @@ function walk(){
         playerCoordy += 64
         if(playerCoordy > -128){
             playerCoordy = -128
+        } else if (playerTile === 94){
+            playerCoordy = -448
         } else {
             playerTile +=17
             pcImage.style.top = playerCoordy + "px"
@@ -144,21 +169,23 @@ function newObject(src, id, top, left){
     return image
 }
 
-newObject("assets/npcRubinDown.png", "rubinNPC", -720, 704)
+newObject("assets/npcLaraDown.png", "laraNPC", -720, 320)
+newObject("assets/npcGrishaDown.png", "grishaNPC", -566, 448)
+newObject("assets/npcRubinDown.png", "rubinNPC", -720, 576)
 
-newObject("assets/pillarRed.png", "pillarRed", -720, 128)
-newObject("assets/pillarBlue.png", "pillarBlue", -720, 256)
-newObject("assets/pillarPurple.png", "pillarPurple", -720, 448)
-newObject("assets/pillarWhite.png", "pillarWhite", -720, 576)
+newObject("assets/pillarRed.png", "pillarRed", -720, 0)
+newObject("assets/pillarBlue.png", "pillarBlue", -720, 128)
+newObject("assets/pillarPurple.png", "pillarPurple", -720, 320)
+newObject("assets/pillarWhite.png", "pillarWhite", -720, 448)
 
-newObject("assets/buttons/buttonUpRed.png", "redPlate", -438, 0)
-newObject("assets/buttons/buttonUpBlue.png", "bluePlate", -438, 64)
-newObject("assets/buttons/buttonUpPurple.png", "purplePlate", -438, 128)
-newObject("assets/buttons/buttonUpWhite.png", "whitePlate", -438, 192)
+newObject("assets/buttons/buttonUpRed.png", "redPlate", -438, -128)
+newObject("assets/buttons/buttonUpBlue.png", "bluePlate", -438, -64)
+newObject("assets/buttons/buttonUpPurple.png", "purplePlate", -438, 0)
+newObject("assets/buttons/buttonUpWhite.png", "whitePlate", -438, 64)
 
-newObject("assets/buttons/leverUpRed.png", "redLever", -784, -320)
-newObject("assets/buttons/leverUpPurple.png", "purpleLever", -784, -128)
-newObject("assets/buttons/leverUpWhite.png", "whiteLever", -784, 64)
+newObject("assets/buttons/leverUpRed.png", "redLever", -784, -448)
+newObject("assets/buttons/leverUpPurple.png", "purpleLever", -784, -256)
+newObject("assets/buttons/leverUpWhite.png", "whiteLever", -784, -64)
 
 // ==============================================================================================
 // ==============================================================================================
@@ -166,13 +193,12 @@ newObject("assets/buttons/leverUpWhite.png", "whiteLever", -784, 64)
 // STEP 5
 // Other Objects and NPCs are impassable based on tile number.
 
-let impassableObjects = ["rubinNPC", "pillarRed", "pillarBlue", "pillarPurple", "pillarWhite"]
-
-function collision(){
-    if(direction === "Up" && playerTile === 89){
-        playerCoordy = -448
-    }
-}
+// function collision(){
+//     if(playerTile === 89 || 92){
+//         playerTile = 89
+//         playerCoordy = -448
+//     }
+// }
 
 
 // ==============================================================================================
