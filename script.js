@@ -148,9 +148,14 @@ function walk(){
             playerTile +=17
             pcImage.style.top = playerCoordy + "px"
         }
-
     }
+
+    // console.log(playerCoordx + ", " + playerCoordy)
+    // console.log(playerTile)
+
 } // end function walk()
+
+
 
 // ==============================================================================================
 // ==============================================================================================
@@ -179,7 +184,7 @@ newObject("assets/pillarPurple.png", "pillarPurple", -976, 320)
 newObject("assets/pillarWhite.png", "pillarWhite", -976, 448)
 
 newObject("assets/buttons/buttonUpRed.png", "redPlate", -694, 0)
-newObject("assets/buttons/buttonUpBlue.png", "bluePlate", -694, 64)
+newObject("assets/buttons/buttonUpBlue.png", "bluePlate", -694, -192)
 newObject("assets/buttons/buttonUpPurple.png", "purplePlate", -694, 128)
 newObject("assets/buttons/buttonUpWhite.png", "whitePlate", -694, -64)
 
@@ -221,14 +226,31 @@ newObject("assets/buttons/leverUpWhite.png", "whiteLever", -1040, -64)
 // Create Reset Function for Puzzles
 
 function leverReset(){
+    console.log("Failed Lever Puzzle. Try Again!")
     leverPuzzleNum === 0
+
     redLever.src = "assets/buttons/leverUpRed.png"
     purpleLever.src = "assets/buttons/leverUpPurple.png"
     whiteLever.src = "assets/buttons/leverUpWhite.png"
+
     redPulled = false
     purplePulled = false
     whitePulled = false
-    console.log(leverPuzzleNum)
+}
+
+function plateReset(){
+    console.log("Failed Plate Puzzle. Try Again!")
+    platePuzzleNum === 0
+
+    redPlate.src = "assets/buttons/buttonUpRed.png"
+    bluePlate.src = "assets/buttons/buttonUpBlue.png"
+    purplePlate.src = "assets/buttons/buttonUpPurple.png"
+    whitePlate.src = "assets/buttons/buttonUpWhite.png"
+
+    redPressed = false
+    bluePressed = false
+    purplePressed = false
+    whitePressed = false
 }
 
 // =================================
@@ -257,22 +279,22 @@ function leverReset(){
 
             // Plate Buttons
 
-                if(playerTile === 142){
+                if(playerTile === 144){
                     redPlate.src = "assets/buttons/buttonDownRed.png"
                     redPressed = true
                 }
 
-                if(playerTile === 144){
+                if(playerTile === 142){
                     bluePlate.src = "assets/buttons/buttonDownBlue.png"
                     bluePressed = true
                 }
 
-                if(playerTile === 146){
+                if(playerTile === 148){
                     purplePlate.src = "assets/buttons/buttonDownPurple.png"
                     purplePressed = true
                 }
 
-                if(playerTile === 148){
+                if(playerTile === 146){
                     whitePlate.src = "assets/buttons/buttonDownWhite.png"
                     whitePressed = true
                 }
@@ -284,7 +306,45 @@ function leverReset(){
                 // Plate Puzzle
                 // puzzle order: red, blue, purple, white
 
+                // red (1)
+                if(redPressed === true){
+                    platePuzzleNum = 1
+                    redPressed === false
+                }
 
+                // blue (2)
+                if(bluePressed === true){
+                    if(platePuzzleNum === 1){
+                        platePuzzleNum = 2
+
+                        bluePressed === false
+                    } else {
+                        plateReset()
+                    }
+                } 
+
+                // purple (3)
+                if(purplePressed === true){
+                    if(platePuzzleNum === 2){
+                        platePuzzleNum = 3
+
+                        purplePressed === false
+                    } else {
+                        plateReset()
+                    }
+                }
+
+                // white (4)
+                if(whitePressed === true){
+                    if(platePuzzleNum === 3){
+                        platePuzzleNum = 4
+
+                        whitePressed === false
+                        return platePuzzleNum
+                    } else {
+                        plateReset()
+                    }
+                }
    
 
             // ==================================
@@ -297,15 +357,15 @@ function leverReset(){
                     // 1 (Purple Lever)
                     if(purplePulled === true){
                         leverPuzzleNum = 1
-                        purpleLever === false
+                        purplePulled === false
                     }
 
                     // 2 (White Lever)
                     if(whitePulled === true){
                         if(leverPuzzleNum === 1){
                             leverPuzzleNum = 2
-                            whiteLever === false
 
+                            whitePulled === false
                             } else {
                                 leverReset()
                             }
@@ -315,6 +375,8 @@ function leverReset(){
                     if(redPulled === true){
                         if(leverPuzzleNum === 2){
                             leverPuzzleNum = 3
+
+                            redPulled === false
                             return leverPuzzleNum
 
                         } else {
@@ -324,30 +386,11 @@ function leverReset(){
 
         } // end function interact()
 
-// ==============================================================================================
-// ==============================================================================================
-// ==============================================================================================
-// STEP 7
-// Rubin Interact.
-
-// ==============================================================================================
-// ==============================================================================================
-// ==============================================================================================
-
-
-
-// ==============================================================================================
-// ==============================================================================================
-// ==============================================================================================
-
-
-
-
-
-
 
 // ==============================================================================================
 // ==============================================================================================
 // ==============================================================================================
 // STEP 10
 // The End
+
+
