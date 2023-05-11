@@ -2,40 +2,40 @@
 // ==============================================================================================
 // ==============================================================================================
 // STEP 1
-// create map array + assign player tile + grab PC sprite + 
-
-//grab Tema's sprite id in the HTML doc
-let pcImage = document.getElementById("playerCharacter")
+// assign player tile + grab PC sprite
 
     // map is 17x13
-        //draws map. default allows all tiles to be walked on.
-        // each tile is 64x64px
+        //each tile is 64x64px
 
 //    1(-1088) 2(-1024) 3(-960) 4(-896) 5(-832) 6(-768) 7(-704) 8(-640) 9(-576) 10(-512) 11(-448) 12(-384) 13(-320) 14(-256) 15(-192) 16(-128) 17(-64)
 
         //              1  2  3  4  5  6  7  8  9  10 11 12 13 14 15 16 17
-        let mapTiles = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  //1     (-768)
-                        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  //2     (-704)
-                        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  //3     (-640)
-                        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  //4     (-576)
-                        1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1,  //5     (-512)
-                        1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1,  //6     (-448) 
-                        1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1,  //7     (-384) 
-                        1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1,  //8     (-320) 
-                        1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1,  //9     (-256)
-                        1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1,  //10    (-192) 
-                        1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1,  //11    (-128)
-                        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  //12    (-64)
-                        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  //13    (0)
-                    ]
-        
+        //              1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  //1     (-768)
+        //              1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  //2     (-704)
+        //              1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  //3     (-640)
+        //              1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  //4     (-576)
+        //              1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1,  //5     (-512)
+        //              1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1,  //6     (-448) 
+        //              1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1,  //7     (-384) 
+        //              1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1,  //8     (-320) 
+        //              1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1,  //9     (-256)
+        //              1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1,  //10    (-192) 
+        //              1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1,  //11    (-128)
+        //              1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  //12    (-64)
+        //              1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  //13    (0)
+    
+// ============================================================
+
+    // grab Tema's sprite id in the HTML doc
+    let pcImage = document.getElementById("playerCharacter")
+
+    // staring position of character
+
     let playerTile = 71    // tile: 3x5: 17*4 + 3 = 71 (-960, -512)
 
     let playerCoordx =  -960
     let playerCoordy = -512
-
-    console.log(playerTile)
-
+  
 // ==============================================================================================
 // ==============================================================================================
 // ==============================================================================================
@@ -79,6 +79,9 @@ let pcImage = document.getElementById("playerCharacter")
 // ==============================================================================================
 // STEP 3
 // move character to new tile onpress according to his direction
+
+        // STEP 5
+        // Other Objects and NPCs are impassable based on tile number.
 
 function walk(){ 
     if(direction === "Left"){
@@ -147,10 +150,7 @@ function walk(){
         }
 
     }
-
-    console.log(playerTile)
-    console.log(playerCoordx + ", " + playerCoordy)
-}
+} // end function walk()
 
 // ==============================================================================================
 // ==============================================================================================
@@ -169,37 +169,23 @@ function newObject(src, id, top, left){
     return image
 }
 
-newObject("assets/npcLaraDown.png", "laraNPC", -720, 320)
-newObject("assets/npcGrishaDown.png", "grishaNPC", -566, 448)
-newObject("assets/npcRubinDown.png", "rubinNPC", -720, 576)
+newObject("assets/npcLaraDown.png", "laraNPC", -976, 320)
+newObject("assets/npcGrishaDown.png", "grishaNPC", -822, 448)
+newObject("assets/npcRubinDown.png", "rubinNPC", -976, 576)
 
-newObject("assets/pillarRed.png", "pillarRed", -720, 0)
-newObject("assets/pillarBlue.png", "pillarBlue", -720, 128)
-newObject("assets/pillarPurple.png", "pillarPurple", -720, 320)
-newObject("assets/pillarWhite.png", "pillarWhite", -720, 448)
+newObject("assets/pillarRed.png", "pillarRed", -976, 0)
+newObject("assets/pillarBlue.png", "pillarBlue", -976, 128)
+newObject("assets/pillarPurple.png", "pillarPurple", -976, 320)
+newObject("assets/pillarWhite.png", "pillarWhite", -976, 448)
 
-newObject("assets/buttons/buttonUpRed.png", "redPlate", -438, -128)
-newObject("assets/buttons/buttonUpBlue.png", "bluePlate", -438, -64)
-newObject("assets/buttons/buttonUpPurple.png", "purplePlate", -438, 0)
-newObject("assets/buttons/buttonUpWhite.png", "whitePlate", -438, 64)
+newObject("assets/buttons/buttonUpRed.png", "redPlate", -694, 0)
+newObject("assets/buttons/buttonUpBlue.png", "bluePlate", -694, 64)
+newObject("assets/buttons/buttonUpPurple.png", "purplePlate", -694, 128)
+newObject("assets/buttons/buttonUpWhite.png", "whitePlate", -694, -64)
 
-newObject("assets/buttons/leverUpRed.png", "redLever", -784, -448)
-newObject("assets/buttons/leverUpPurple.png", "purpleLever", -784, -256)
-newObject("assets/buttons/leverUpWhite.png", "whiteLever", -784, -64)
-
-// ==============================================================================================
-// ==============================================================================================
-// ==============================================================================================
-// STEP 5
-// Other Objects and NPCs are impassable based on tile number.
-
-// function collision(){
-//     if(playerTile === 89 || 92){
-//         playerTile = 89
-//         playerCoordy = -448
-//     }
-// }
-
+newObject("assets/buttons/leverUpRed.png", "redLever", -1040, -448)
+newObject("assets/buttons/leverUpPurple.png", "purpleLever", -1040, -256)
+newObject("assets/buttons/leverUpWhite.png", "whiteLever", -1040, -64)
 
 // ==============================================================================================
 // ==============================================================================================
@@ -207,6 +193,7 @@ newObject("assets/buttons/leverUpWhite.png", "whiteLever", -784, -64)
 // STEP 6
 // Objects are interactible.
 
+        // assigns variables to puzzle DOM elements allowing them to be changed
         let redLever = document.getElementById("redLever")
         let purpleLever = document.getElementById("purpleLever")
         let whiteLever = document.getElementById("whiteLever")
@@ -216,43 +203,126 @@ newObject("assets/buttons/leverUpWhite.png", "whiteLever", -784, -64)
         let purplePlate = document.getElementById("purplePlate")
         let whitePlate = document.getElementById("whitePlate")
 
+        // boolean if object is interacted with.
+        let redPulled = false
+        let purplePulled = false
+        let whitePulled = false
+
+        let redPressed = false
+        let bluePressed = false
+        let purplePressed = false
+        let whitePressed = false
+
+        // puzzle keys
+        let leverPuzzleNum = 0 //(3)
+        let platePuzzleNum = 0 //(4)
+
+// STEP 12
+// Create Reset Function for Puzzles
+
+function leverReset(){
+    leverPuzzleNum === 0
+    redLever.src = "assets/buttons/leverUpRed.png"
+    purpleLever.src = "assets/buttons/leverUpPurple.png"
+    whiteLever.src = "assets/buttons/leverUpWhite.png"
+    redPulled = false
+    purplePulled = false
+    whitePulled = false
+    console.log(leverPuzzleNum)
+}
+
+// =================================
+
         function interact(){
 
             // Levers
 
                 if(direction === "Up" && playerTile === 73){
                     redLever.src = "assets/buttons/leverDownRed.png"
-                    console.log("Red Lever Pulled")
-                }
-                if(direction === "Up" && playerTile === 77){
-                    purpleLever.src = "assets/buttons/leverDownPurple.png"
-                    console.log("Purple Lever Pulled")
-                }
-                if(direction === "Up" && playerTile === 81){
-                    whiteLever.src = "assets/buttons/leverDownWhite.png"
-                    console.log("White Lever Pulled")
+                    redPulled = true  
                 }
 
+                if(direction === "Up" && playerTile === 77){
+                    purpleLever.src = "assets/buttons/leverDownPurple.png"
+                    purplePulled = true
+                }
+
+                if(direction === "Up" && playerTile === 81){
+                    whiteLever.src = "assets/buttons/leverDownWhite.png"
+                    whitePulled = true
+                }
+
+            // ==================================
+            // ==================================
 
             // Plate Buttons
 
-            if(playerTile === 142){
-                redPlate.src = "assets/buttons/buttonDownRed.png"
-                console.log("Red Plate Pressed")
-            }
-            if(playerTile === 144){
-                bluePlate.src = "assets/buttons/buttonDownBlue.png"
-                console.log("Blue Plate Pressed")
-            }
-            if(playerTile === 146){
-                purplePlate.src = "assets/buttons/buttonDownPurple.png"
-                console.log("Purple Plate Pressed")
-            }
-            if(playerTile === 148){
-                whitePlate.src = "assets/buttons/buttonDownWhite.png"
-                console.log("White Plate Pressed")
-            }
-        }
+                if(playerTile === 142){
+                    redPlate.src = "assets/buttons/buttonDownRed.png"
+                    redPressed = true
+                }
+
+                if(playerTile === 144){
+                    bluePlate.src = "assets/buttons/buttonDownBlue.png"
+                    bluePressed = true
+                }
+
+                if(playerTile === 146){
+                    purplePlate.src = "assets/buttons/buttonDownPurple.png"
+                    purplePressed = true
+                }
+
+                if(playerTile === 148){
+                    whitePlate.src = "assets/buttons/buttonDownWhite.png"
+                    whitePressed = true
+                }
+
+            // ==================================
+            // ==================================
+
+                // STEP 8
+                // Plate Puzzle
+                // puzzle order: red, blue, purple, white
+
+
+   
+
+            // ==================================
+            // ==================================
+
+                // STEP 9
+                // Lever Puzzle
+                // puzzle order: purple, white, red
+
+                    // 1 (Purple Lever)
+                    if(purplePulled === true){
+                        leverPuzzleNum = 1
+                        purpleLever === false
+                    }
+
+                    // 2 (White Lever)
+                    if(whitePulled === true){
+                        if(leverPuzzleNum === 1){
+                            leverPuzzleNum = 2
+                            whiteLever === false
+
+                            } else {
+                                leverReset()
+                            }
+                    }
+
+                    // 3 (Red Lever)
+                    if(redPulled === true){
+                        if(leverPuzzleNum === 2){
+                            leverPuzzleNum = 3
+                            return leverPuzzleNum
+
+                        } else {
+                            leverReset()
+                        }    
+                    }
+
+        } // end function interact()
 
 // ==============================================================================================
 // ==============================================================================================
@@ -263,14 +333,18 @@ newObject("assets/buttons/leverUpWhite.png", "whiteLever", -784, -64)
 // ==============================================================================================
 // ==============================================================================================
 // ==============================================================================================
-// STEP 8
-// Plate Puzzle
+
+
 
 // ==============================================================================================
 // ==============================================================================================
 // ==============================================================================================
-// STEP 9
-// Lever Puzzle
+
+
+
+
+
+
 
 // ==============================================================================================
 // ==============================================================================================
