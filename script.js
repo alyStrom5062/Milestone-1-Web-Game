@@ -35,6 +35,8 @@
 
     let playerCoordx =  -960
     let playerCoordy = -512
+
+    let gameFinished = false
   
 // ==============================================================================================
 // ==============================================================================================
@@ -69,6 +71,7 @@
             pcImage.src = "assets/pcTemaDown.png"
             walk()
         }
+
         if(e.key === "Enter"){
             interact()
         }
@@ -174,9 +177,9 @@ function newObject(src, id, top, left){
     return image
 }
 
-newObject("assets/npcLaraDown.png", "laraNPC", -976, 320)
-newObject("assets/npcGrishaDown.png", "grishaNPC", -822, 448)
-newObject("assets/npcRubinDown.png", "rubinNPC", -976, 576)
+newObject("assets/npcLaraDown.png", "laraNPC", -966, 324)
+newObject("assets/npcRubinDown.png", "rubinNPC", -838, 452)
+newObject("assets/npcgrishaDown.png", "grishaNPC", -966, 576)
 
 newObject("assets/pillarRed.png", "pillarRed", -976, 0)
 newObject("assets/pillarBlue.png", "pillarBlue", -976, 128)
@@ -208,6 +211,10 @@ newObject("assets/buttons/leverUpWhite.png", "whiteLever", -1040, -64)
         let purplePlate = document.getElementById("purplePlate")
         let whitePlate = document.getElementById("whitePlate")
 
+        let npcLara = document.getElementById("laraNPC")
+        let npcRubin = document.getElementById("rubinNPC")
+        let npcGrisha = document.getElementById("grishaNPC")
+
         // boolean if object is interacted with.
         let redPulled = false
         let purplePulled = false
@@ -218,12 +225,17 @@ newObject("assets/buttons/leverUpWhite.png", "whiteLever", -1040, -64)
         let purplePressed = false
         let whitePressed = false
 
+        let laraSpoken = false
+        let rubinSpoken = false
+        let grishaSpoken = false
+
         // puzzle keys
         let leverPuzzleNum = 0 //(3)
         let platePuzzleNum = 0 //(4)
 
+// ==============================================================================================
 // STEP 12
-// Create Reset Function for Puzzles
+// Create Reset Functions for Puzzles
 
 function leverReset(){
     console.log("Failed Lever Puzzle. Try Again!")
@@ -256,6 +268,25 @@ function plateReset(){
 // =================================
 
         function interact(){
+
+            // People
+
+            if((playerTile === 91 && direction === "Up") || (playerTile === 73 && direction === "Right")){
+                npcLara.src = "assets/npcLaraDownColor.png"
+            }
+
+            if((playerTile === 97 && direction === "Up") || (playerTile === 81 && direction === "Left")){
+                npcGrisha.src = "assets/npcGrishaDownColor.png"
+            }
+
+            if((playerTile === 128 && direction === "Up") || (playerTile === 112 && direction === "Left") 
+            || (playerTile === 94 && direction === "Down") || (playerTile === 110 && direction === "Right")){
+                npcRubin.src = "assets/npcRubinDownColor.png"
+            }
+
+           
+            // ==================================
+            // ==================================
 
             // Levers
 
@@ -309,15 +340,12 @@ function plateReset(){
                 // red (1)
                 if(redPressed === true){
                     platePuzzleNum = 1
-                    redPressed === false
                 }
 
                 // blue (2)
                 if(bluePressed === true){
                     if(platePuzzleNum === 1){
                         platePuzzleNum = 2
-
-                        bluePressed === false
                     } else {
                         plateReset()
                     }
@@ -327,8 +355,6 @@ function plateReset(){
                 if(purplePressed === true){
                     if(platePuzzleNum === 2){
                         platePuzzleNum = 3
-
-                        purplePressed === false
                     } else {
                         plateReset()
                     }
@@ -338,9 +364,6 @@ function plateReset(){
                 if(whitePressed === true){
                     if(platePuzzleNum === 3){
                         platePuzzleNum = 4
-
-                        whitePressed === false
-                        return platePuzzleNum
                     } else {
                         plateReset()
                     }
@@ -357,15 +380,12 @@ function plateReset(){
                     // 1 (Purple Lever)
                     if(purplePulled === true){
                         leverPuzzleNum = 1
-                        purplePulled === false
                     }
 
                     // 2 (White Lever)
                     if(whitePulled === true){
                         if(leverPuzzleNum === 1){
                             leverPuzzleNum = 2
-
-                            whitePulled === false
                             } else {
                                 leverReset()
                             }
@@ -375,22 +395,25 @@ function plateReset(){
                     if(redPulled === true){
                         if(leverPuzzleNum === 2){
                             leverPuzzleNum = 3
-
-                            redPulled === false
-                            return leverPuzzleNum
-
                         } else {
                             leverReset()
                         }    
                     }
 
-        } // end function interact()
+            // ==================================
+            // ==================================
 
+            if((leverPuzzleNum) === 3 && (platePuzzleNum === 4)){
+                gameFinished = true
+                newObject("assets/npcDanya.png", "Danya", -774, -382 )
+                return gameFinished
+            }
+        // ==================================================
+
+    } // end function interact()
 
 // ==============================================================================================
 // ==============================================================================================
 // ==============================================================================================
 // STEP 10
 // The End
-
-
