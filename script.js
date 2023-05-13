@@ -179,7 +179,7 @@ function newObject(src, id, top, left){
 
 newObject("assets/npcLaraDown.png", "laraNPC", -966, 324)
 newObject("assets/npcRubinDown.png", "rubinNPC", -838, 452)
-newObject("assets/npcgrishaDown.png", "grishaNPC", -966, 576)
+newObject("assets/npcGrishaDown.png", "grishaNPC", -966, 576)
 
 newObject("assets/pillarRed.png", "pillarRed", -976, 0)
 newObject("assets/pillarBlue.png", "pillarBlue", -976, 128)
