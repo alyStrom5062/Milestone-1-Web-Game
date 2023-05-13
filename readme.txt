@@ -53,7 +53,7 @@ Victory and Loss
 - Character can press Enter to pull a lever on the wall or press a button on the floor and have the sprite change.
 - Buttons and Levers have a specific order which they must be interacted with. If the pattern is not correct they will reset and player must start over.
 - The NPCs either change color or speak to you when interacted with. 
-- There is an indicator of when you beat both puzzles and win.
+- There is a new NPC which spawns after beating the two puzzles indicator of when you beat both puzzles and win.
 
 ```
 
@@ -72,10 +72,8 @@ Victory and Loss
 | ----      | ----- |
 | Mon. 5/1  | Create GitHub repository. Created map, uploaded art. Character can move.|
 | Wed. 5/3  | Plates, Pillars, Levers, and Rubin NPC added.|
-| Sat. 5/6  | |
 | Mon. 5/8  | Deployed to GitHub Pages. Collision |
 | Wed. 5/10 | Directions added. Puzzles are completed. Completed README.md.|
-| Thu. 5/11 | |
-| Fri. 5/12 | |
+| Thu. 5/11 | Characters change color. New NPC spawns when both puzzles are completed.|
 | Sat. 5/13 | Submit completed project. Project presentations.|
 
